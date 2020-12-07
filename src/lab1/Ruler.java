@@ -4,8 +4,8 @@ public class Ruler extends Tool{
 
     private int scaleSize;
 
-    public Ruler(double length, double width, double height, int scaleSize) {
-        super(length, width, height);
+    public Ruler(double length, double width, double height, double price, int scaleSize) {
+        super(length, width, height, price);
         this.scaleSize = scaleSize;
     }
 
@@ -19,6 +19,6 @@ public class Ruler extends Tool{
 
     @Override
     public String toString(){
-        return "Ruler scale size is " + scaleSize + " volume is " + getVolume();
+        return "Ruler scale size is " + scaleSize + " volume is " + getVolume() + ", price is " + getPrice() + " UAH;";
     }
 }

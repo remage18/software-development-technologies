@@ -4,8 +4,8 @@ public class Pen extends Tool{
 
     private Color penColor;
 
-    public Pen(double length, double width, double height, Color penColor) {
-        super(length, width, height);
+    public Pen(double length, double width, double height, double price, Color penColor) {
+        super(length, width, height, price);
         this.penColor = penColor;
     }
 
@@ -19,7 +19,7 @@ public class Pen extends Tool{
 
     @Override
     public String toString() {
-        return "Pen color is " + penColor + " volume is " + getVolume();
+        return "Pen color is " + penColor + ", volume is " + getVolume() + ", price is " + getPrice() + " UAH;";
     }
 
     @Override

@@ -4,8 +4,8 @@ public class Pencil extends Tool{
 
     private PencilHardness pencilHardness;
 
-    public Pencil(double length, double width, double height, PencilHardness pencilHardness) {
-        super(length, width, height);
+    public Pencil(double length, double width, double height, double price, PencilHardness pencilHardness) {
+        super(length, width, height, price);
         this.pencilHardness = pencilHardness;
     }
 
@@ -25,6 +25,6 @@ public class Pencil extends Tool{
 
     @Override
     public String toString(){
-        return "Pencil hardness is " + pencilHardness + " volume is " + getVolume();
+        return "Pencil hardness is " + pencilHardness + ", volume is " + getVolume() + ", price is " + getPrice() + " UAH;";
     }
 }

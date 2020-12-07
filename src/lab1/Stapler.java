@@ -7,8 +7,8 @@ public class Stapler extends Tool implements Application{
     private String name;
     private PaperClip paperClip;
 
-    public Stapler(double length, double width, double height, String name) {
-        super(length, width, height);
+    public Stapler(double length, double width, double height, double price, String name) {
+        super(length, width, height, price);
         this.name = name;
         paperClip = new PaperClip(0);
     }
@@ -48,7 +48,7 @@ public class Stapler extends Tool implements Application{
 
     @Override
     public String toString(){
-        return "Stapler name is " + getName();
+        return "Stapler name is " + getName() + ", price is " + getPrice() + " UAH;";
     }
 
     private class PaperClip{
