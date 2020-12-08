@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StationeryStand {
 
@@ -75,8 +76,13 @@ public class StationeryStand {
                 "Tool price is less than 15.00 UAN" : "Tool price is higher than 15.00 UAN"));
     }
 
-    public Map<Color, Long> getPenColors(){
+    public Optional<Map.Entry<Color, Long>> getPenColors(){
+        Stream<Color> temp = tools.stream().filter(tool -> tool instanceof Pen).map(pen -> ((Pen) pen).getPenColor());
+        System.out.println("Colors: ");
+        temp.forEach(x -> System.out.println(x + " "));
+        System.out.println();
         return tools.stream().filter(tool -> tool instanceof Pen).map(pen -> ((Pen) pen).getPenColor())
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+                    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+                    .stream().max(Map.Entry.comparingByValue());
     }
 }
