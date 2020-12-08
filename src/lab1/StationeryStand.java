@@ -1,6 +1,7 @@
 package lab1;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -74,8 +75,8 @@ public class StationeryStand {
                 "Tool price is less than 15.00 UAN" : "Tool price is higher than 15.00 UAN"));
     }
 
-    public List<Color> getPenColors(){
+    public Map<Color, Long> getPenColors(){
         return tools.stream().filter(tool -> tool instanceof Pen).map(pen -> ((Pen) pen).getPenColor())
-                .collect(Collectors.toList());
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }
