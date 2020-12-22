@@ -17,6 +17,10 @@ public class StationeryStand {
         tools = new ArrayList<Tool>();
     }
 
+    public StationeryStand(ArrayList<Tool> tools){
+        this.tools = tools;
+    }
+
     public String draw(Pencil pencil) throws DrawException{
         return pencil.draw();
     }
